@@ -51,5 +51,5 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   Rails.application.routes.default_url_options[:host] = 'localhost'
-  Rails.application.routes.default_url_options[:port] = 3000
+  Rails.application.routes.default_url_options[:port] = 10001
 end

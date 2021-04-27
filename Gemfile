@@ -11,6 +11,7 @@ gem 'rack-cors'
 gem 'devise'
 gem 'devise_token_auth'
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'activestorage-validator'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
