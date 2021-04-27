@@ -1,0 +1,28 @@
+version: '3'
+services:
+  db:
+    image: postgres:12.5
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: password
+    ports:
+      - "10000:10000"
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+  web:
+    build: .
+    environment:
+      - EDITOR=vim
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 10001 -b '0.0.0.0'"
+    volumes:
+      - .:/app
+      - gem_data:/usr/local/bundle
+    ports:
+      - 10001:10001
+    depends_on:
+      - db
+    tty: true
+    stdin_open: true
+volumes:
+  gem_data:
+
